@@ -1,1 +1,0 @@
-print('BME PhD Applicant 2026')
