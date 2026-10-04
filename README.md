@@ -13,7 +13,7 @@ A structured repository documenting self-directed computational training, numeri
 ## Repository Structure
 
 * `core_syntax_and_indexing/`: Applied exercises covering string manipulation on FASTA-style biological sequences and multi-slice sensor telemetry arrays.
-* *(Upcoming)* `02_numpy_computational_arrays/`: Vectorized array operations and multi-variable numerical processing notebooks.
+* `02_numpy_computational_arrays/`: Vectorized array operations and multi-variable numerical processing notebooks.
 * *(Upcoming)* `03_pandas_biochemical_curation/`: Data ingestion and cleaning pipelines tailored to multi-well plate reader outputs and chromatography fractions.
 
 ---
