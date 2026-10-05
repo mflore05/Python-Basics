@@ -22,6 +22,7 @@ A structured repository documenting self-directed computational training, numeri
 
 This computational foundation supports quantitative modeling in cancer metabolism, enzyme kinetics, and biotransport, including:
 1. Automated peak detection, baseline correction, and integration for FPLC UV absorbance chromatograms.
+
    ---
    ## Pipeline
    | Stage | Status |
@@ -35,10 +36,10 @@ This computational foundation supports quantitative modeling in cancer metabolis
 
    ## Data
 
-   * 'run_001.csv' - 1200 points over 60 minutes: six Gaussian elution peaks on a drifting baseline with detector noise.
+   * ´run_001.csv´ - 1200 points over 60 minutes: six Gaussian elution peaks on a drifting baseline with detector noise.
    * It includes an injection artifact, a partially resolved peak pair, and a peak close to the noise floor.
    * The data is simulated. The generator was written separately and is not included here, so the analysis cannot see the true peak areas.
-     ** Recovered values can be scored against time afterward. **
+   * **Recovered values can be scored against time afterward.**
 
    ## Approach used so far
 
