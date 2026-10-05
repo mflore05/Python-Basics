@@ -23,7 +23,6 @@ A structured repository documenting self-directed computational training, numeri
 This computational foundation supports quantitative modeling in cancer metabolism, enzyme kinetics, and biotransport, including:
 1. Automated peak detection, baseline correction, and integration for FPLC UV absorbance chromatograms.
 
-   ---
    ## Pipeline
    | Stage | Status |
    |---|---|
