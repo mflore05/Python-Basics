@@ -42,17 +42,18 @@ This computational foundation supports quantitative modeling in cancer metabolis
 
    ## Approach used so far
 
-   * The baseline is estimated by splitting the run into equal windows, taking the lowest value in each, and interpolating between those anchor points.
-   * This proves the fact that peaks only ever push the signal up, so the low values in any windows are the least contaminated.
-   * **Known limitation:** The minimum of a noisy window sits below the true baseline, giving an offset value of ~0.012 AU.
-       * Because integration error scales with peak *width* rather than height, this alters small peaks disproportionately.
-       * The next step is a low percentile instead of the minimum.
+   * The baseline is estimated by splitting the run into equal windows, taking a low percentile of each, and interpolating in a linear fashion between those anchor points.
+   * **Assumption:** The elution peaks only add absorbance, so the lowest values in a window are the least peak-contaminated. This holds for well-behaved UV traces, but fails whenever the signal can dip below the baseline, which can occur through a refractive index mismatch at gradient transitions, air bubbles present in the column, or changes in the buffer absorbance. Those regions would need separate handling.
+   * **Edge Clamping:** ´np.interp´ holds values flat outside the range of the first and last anchor times ($t=1.98$ and $t=58.02$). The baseline does not track drift in the first and last two minutes of the run, and those regions should be flagged as unreliable.
+   * **Window Size:** 1200 points over 60 min is 0.05 min/point, so ´window_size = 80´ is a 4-minute window against peaks 1-2 min wide. There were two constraints that set this:
+     a. Wider than the widest peak - otherwise a window falls inside a peak and the method subtacts the peak from itself.
+     b. Narrower than the scale of baseline curvature - otherwise the interpolation cannot track the drift.
+   * The big question! **Why not AsLS?** As known, asymmetric least squares, SNIP, and rolling-ball are the standard approaches and would likely perform better. Windowed percentile was picked because its failure modes are tractable, meaning that the bias below is predictable in closed form than dependent on a tuned smoothing parameter.
+   
     
    ## Running it
 
    * Open 'FPLC_peak_integration.ipynb' and run all cells. Requires NumPy and matplotlib.
   
     ---
-3.  Non-linear parameter estimation for allosteric enzyme kinetics (Michaelis-Menten / Hill formulations).
-4. 1D/2D finite-difference modeling of interstitial fluid pressure (IFP) and convective transport gradients in solid tumors.
-
+2.  Non-linear parameter estimation for allosteric enzyme kinetics (Michaelis-Menten / Hill formulations).
