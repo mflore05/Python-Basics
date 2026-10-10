@@ -18,9 +18,8 @@ A structured repository documenting self-directed computational training, numeri
 
 ---
 
-## Research Application & Trajectory
-
-This computational foundation supports quantitative modeling in cancer metabolism, enzyme kinetics, and biotransport, including:
+## Research Application 
+This repository connects experimental biochemistry with quantitative data analysis, building the computational foundation for PhD research in Biomedical Engineering. Current application includes:
 1. Automated peak detection, baseline correction, and integration for FPLC UV absorbance chromatograms.
 
    ## Pipeline
